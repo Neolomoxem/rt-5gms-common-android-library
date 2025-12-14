@@ -61,3 +61,15 @@ class FirstFrameRenderedEvent(
     /** Elapsed real-time in milliseconds when the first frame was rendered */
     val realtimeMs: Long
 )
+
+/**
+ * Event fired when the video display size changes (e.g., orientation change, fullscreen toggle)
+ * Used for Device Information QoE metric per TS 26.247 clause 10.2.10
+ */
+class VideoSizeChangedEvent(
+    val videoWidth: Int,
+    val videoHeight: Int,
+    val screenWidth: Int,
+    val screenHeight: Int
+)
+

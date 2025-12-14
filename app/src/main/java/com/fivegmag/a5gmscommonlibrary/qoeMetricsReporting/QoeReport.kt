@@ -33,6 +33,10 @@ data class QoeReport(
     @field:JacksonXmlProperty(localName = "InitialPlayoutDelay")
     var initialPlayoutDelay: Long? = null,
 
+    @field:JacksonXmlElementWrapper(localName = "QoeMetric")
+    @field:JacksonXmlProperty(localName = "DeviceInformation")
+    var deviceInformation: ArrayList<DeviceInformation>? = null,
+
     @field:JacksonXmlProperty(isAttribute = true, localName = "periodID")
     var periodId: String = "",
 
