@@ -34,6 +34,10 @@ data class QoeReport(
     var initialPlayoutDelay: Long? = null,
 
     @field:JacksonXmlElementWrapper(localName = "QoeMetric")
+    @field:JacksonXmlProperty(localName = "PlayoutDelayForMediaStartup")
+    var playoutDelayForMediaStartup: Long? = null,
+
+    @field:JacksonXmlElementWrapper(localName = "QoeMetric")
     @field:JacksonXmlProperty(localName = "DeviceInformation")
     var deviceInformation: ArrayList<DeviceInformation>? = null,
 

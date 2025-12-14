@@ -93,3 +93,13 @@ class PlaybackSpeedChangedEvent(
     val eventTime: EventTime,
     val playbackSpeed: Float
 )
+
+/**
+ * Event fired when the user triggers playback start (e.g., clicks play button)
+ * Used for Playout Delay for Media Start-up QoE metric per TS 26.247 clause 10.2.9
+ * Start time is measured from this event.
+ */
+class PlaybackStartTriggerEvent(
+    /** Elapsed real-time in milliseconds when the playback start was triggered */
+    val realtimeMs: Long
+)
