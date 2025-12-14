@@ -41,3 +41,74 @@ class LoadCompletedEvent(
 class CellInfoUpdatedEvent(
     val cellInfoList: MutableList<CellInfo>
 )
+
+/**
+ * Event fired when the first media segment fetch begins
+ * Used for Initial Playout Delay QoE metric per TS 26.247 clause 10.2.5
+ * Start time is measured from this event.
+ */
+class FirstMediaSegmentRequestedEvent(
+    /** Elapsed real-time in milliseconds when the first media segment fetch started */
+    val realtimeMs: Long
+)
+
+/**
+ * Event fired when the first video frame is rendered after playback request
+ * Used for Initial Playout Delay QoE metric per TS 26.247 clause 10.2.5
+ * End time is measured from this event.
+ */
+class FirstFrameRenderedEvent(
+    /** Elapsed real-time in milliseconds when the first frame was rendered */
+    val realtimeMs: Long
+)
+
+/**
+ * Event fired when the video display size changes (e.g., orientation change, fullscreen toggle)
+ * Used for Device Information QoE metric per TS 26.247 clause 10.2.10
+ */
+class VideoSizeChangedEvent(
+    val videoWidth: Int,
+    val videoHeight: Int,
+    val screenWidth: Int,
+    val screenHeight: Int
+)
+
+/**
+ * Event fired when a seek operation occurs
+ * Used for PlayList QoE metric per TS 26.247 clause 10.2.6
+ */
+class SeekEvent(
+    val eventTime: EventTime,
+    /** Media position before the seek in milliseconds */
+    val oldPositionMs: Long,
+    /** Media position after the seek in milliseconds */
+    val newPositionMs: Long
+)
+
+/**
+ * Event fired when playback speed changes
+ * Used for PlayList QoE metric per TS 26.247 clause 10.2.6
+ */
+class PlaybackSpeedChangedEvent(
+    val eventTime: EventTime,
+    val playbackSpeed: Float
+)
+
+/**
+ * Event fired when the user triggers playback start (e.g., clicks play button)
+ * Used for Playout Delay for Media Start-up QoE metric per TS 26.247 clause 10.2.9
+ * Start time is measured from this event.
+ */
+class PlaybackStartTriggerEvent(
+    /** Elapsed real-time in milliseconds when the playback start was triggered */
+    val realtimeMs: Long
+)
+
+/**
+ * Event fired when bytes are transferred over the network.
+ * Used for AvgThroughput QoE metric per TS 26.247 clause 10.2.4.
+ * Emitted incrementally by the TransferListener as data arrives.
+ */
+class BytesTransferredEvent(
+    val bytesTransferred: Int
+)

@@ -9,15 +9,23 @@ https://drive.google.com/file/d/1cinCiA778IErENZ3JN52VFW-1ffHpx7Z/view
 
 package com.fivegmag.a5gmscommonlibrary.qoeMetricsReporting
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement
 
 @JacksonXmlRootElement(localName = "ReceptionReport")
+@JsonPropertyOrder("schemaVersion", "qoeReport", "delimiter")
 data class ReceptionReport(
+    @field:JacksonXmlProperty(localName = "sv:schemaVersion")
+    var schemaVersion: String? = null,
+
     @field:JacksonXmlElementWrapper(useWrapping = false)
     @field:JacksonXmlProperty(localName = "QoeReport")
     var qoeReport: QoeReport,
+
+    @field:JacksonXmlProperty(localName = "sv:delimiter")
+    var delimiter: Delimiter? = null,
 
     @field:JacksonXmlProperty(isAttribute = true, localName = "contentURI")
     var contentUri: String,
@@ -36,4 +44,7 @@ data class ReceptionReport(
 
     @field:JacksonXmlProperty(isAttribute = true, localName = "xmlns:sv")
     var sv: String? = null,
+
+    @field:JacksonXmlProperty(isAttribute = true, localName = "xmlns:sup")
+    var sup: String? = null,
 )

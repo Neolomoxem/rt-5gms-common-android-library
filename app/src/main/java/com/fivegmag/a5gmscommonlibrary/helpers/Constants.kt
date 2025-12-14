@@ -74,14 +74,18 @@ object MetricReportingSchemes {
 
 object Metrics {
     const val BUFFER_LEVEL = "urn:3GPP:ns:PSS:DASH:QM10#BufferLevel"
-    const val HTTP_LIST = "urn:3GPP:ns:PSS:DASH:QM10#HTTPList"
     const val REP_SWITCH_LIST = "urn:3GPP:ns:PSS:DASH:QM10#RepSwitchList"
     const val MPD_INFORMATION = "urn:3GPP:ns:PSS:DASH:QM10#MPDInformation"
+    const val INITIAL_PLAYOUT_DELAY = "urn:3GPP:ns:PSS:DASH:QM10#InitialPlayoutDelay"
+    const val PLAYOUT_DELAY_FOR_MEDIA_STARTUP = "urn:3GPP:ns:PSS:DASH:QM10#PlayoutDelayForMediaStartup"
+    const val DEVICE_INFORMATION = "urn:3GPP:ns:PSS:DASH:QM10#DeviceInformation"
+    const val AVG_THROUGHPUT = "urn:3GPP:ns:PSS:DASH:QM10#AvgThroughput"
+    const val PLAY_LIST = "urn:3GPP:ns:PSS:DASH:QM10#PlayList"
 }
 
 object XmlSchemaStrings {
-    object THREE_GPP_METADATA_2011_HSD_RECEPTION_REPORT {
-        const val SCHEMA = "urn:3gpp:metadata:2011:HSD:receptionreport"
+    object THREE_GPP_METADATA_2017_HSD_RECEPTION_REPORT {
+        const val SCHEMA = "urn:3gpp:metadata:2017:HSD:receptionreport"
         const val LOCATION = "DASH-QoE-Report.xsd"
         const val XSI = "http://www.w3.org/2001/XMLSchema-instance"
         const val SV = "urn:3gpp:metadata:2016:PSS:schemaVersion"
