@@ -41,3 +41,23 @@ class LoadCompletedEvent(
 class CellInfoUpdatedEvent(
     val cellInfoList: MutableList<CellInfo>
 )
+
+/**
+ * Event fired when the first media segment fetch begins
+ * Used for Initial Playout Delay QoE metric per TS 26.247 clause 10.2.5
+ * Start time is measured from this event.
+ */
+class FirstMediaSegmentRequestedEvent(
+    /** Elapsed real-time in milliseconds when the first media segment fetch started */
+    val realtimeMs: Long
+)
+
+/**
+ * Event fired when the first video frame is rendered after playback request
+ * Used for Initial Playout Delay QoE metric per TS 26.247 clause 10.2.5
+ * End time is measured from this event.
+ */
+class FirstFrameRenderedEvent(
+    /** Elapsed real-time in milliseconds when the first frame was rendered */
+    val realtimeMs: Long
+)

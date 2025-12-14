@@ -77,6 +77,7 @@ object Metrics {
     const val HTTP_LIST = "urn:3GPP:ns:PSS:DASH:QM10#HTTPList"
     const val REP_SWITCH_LIST = "urn:3GPP:ns:PSS:DASH:QM10#RepSwitchList"
     const val MPD_INFORMATION = "urn:3GPP:ns:PSS:DASH:QM10#MPDInformation"
+    const val INITIAL_PLAYOUT_DELAY = "urn:3GPP:ns:PSS:DASH:QM10#InitialPlayoutDelay"
 }
 
 object XmlSchemaStrings {
