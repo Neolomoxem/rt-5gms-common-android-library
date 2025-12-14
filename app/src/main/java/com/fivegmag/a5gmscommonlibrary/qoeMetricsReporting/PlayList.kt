@@ -13,8 +13,8 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty
 
 /**
- * PlayList metric per TS 26.247 clause 10.2.6
- * Records the playback timeline including representation switches, seeks, and stop events.
+ * PlayList metric per TS 26.247 clause 10.2.7
+ * Records the playback timeline including representation switches, seeks, rebuffering, and stop events.
  *
  * XSD Definition:
  * <xs:complexType name="PlayListType">
@@ -31,7 +31,7 @@ data class PlayList(
 )
 
 /**
- * PlayList entry (Trace element) per TS 26.247 clause 10.2.6
+ * PlayList entry (Trace element) per TS 26.247 clause 10.2.7
  * Represents a continuous playback session from a specific start point.
  *
  * XSD Definition:
@@ -65,7 +65,7 @@ data class PlayListEntry(
 )
 
 /**
- * PlayList trace entry per TS 26.247 clause 10.2.6
+ * PlayList trace entry per TS 26.247 clause 10.2.7
  * Records details about a specific segment of playback within a playlist entry.
  *
  * XSD Definition:
@@ -116,7 +116,7 @@ data class PlayListTraceEntry(
 )
 
 /**
- * Start type for PlayList entries per TS 26.247 clause 10.2.6
+ * Start type for PlayList entries per TS 26.247 clause 10.2.7
  * Indicates how playback was initiated.
  */
 enum class StartType {
@@ -131,20 +131,22 @@ enum class StartType {
 }
 
 /**
- * Stop reason for PlayList trace entries per TS 26.247 clause 10.2.6
+ * Stop reason for PlayList trace entries per TS 26.247 clause 10.2.7
  * Indicates why playback stopped or paused.
  */
 enum class StopReasonType {
     /** Representation switch occurred */
     REP_SWITCH,
+    /** Rebuffering/stalling occurred */
+    REBUFFERING,
     /** User initiated pause */
     USER_REQUEST,
     /** End of content reached */
     END_OF_CONTENT,
     /** End of Period in MPD */
     END_OF_PERIOD,
-    /** End of MPD/stream */
-    END_OF_MPD,
+    /** End of a metrics collection period */
+    METRICS_COLLECTION_PERIOD,
     /** Playback failure/error */
     FAILURE,
     /** Other reason (use stopReasonOther for details) */
