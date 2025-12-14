@@ -73,3 +73,23 @@ class VideoSizeChangedEvent(
     val screenHeight: Int
 )
 
+/**
+ * Event fired when a seek operation occurs
+ * Used for PlayList QoE metric per TS 26.247 clause 10.2.6
+ */
+class SeekEvent(
+    val eventTime: EventTime,
+    /** Media position before the seek in milliseconds */
+    val oldPositionMs: Long,
+    /** Media position after the seek in milliseconds */
+    val newPositionMs: Long
+)
+
+/**
+ * Event fired when playback speed changes
+ * Used for PlayList QoE metric per TS 26.247 clause 10.2.6
+ */
+class PlaybackSpeedChangedEvent(
+    val eventTime: EventTime,
+    val playbackSpeed: Float
+)

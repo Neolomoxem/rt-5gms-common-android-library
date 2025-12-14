@@ -80,6 +80,7 @@ object Metrics {
     const val INITIAL_PLAYOUT_DELAY = "urn:3GPP:ns:PSS:DASH:QM10#InitialPlayoutDelay"
     const val DEVICE_INFORMATION = "urn:3GPP:ns:PSS:DASH:QM10#DeviceInformation"
     const val AVG_THROUGHPUT = "urn:3GPP:ns:PSS:DASH:QM10#AvgThroughput"
+    const val PLAY_LIST = "urn:3GPP:ns:PSS:DASH:QM10#PlayList"
 }
 
 object XmlSchemaStrings {

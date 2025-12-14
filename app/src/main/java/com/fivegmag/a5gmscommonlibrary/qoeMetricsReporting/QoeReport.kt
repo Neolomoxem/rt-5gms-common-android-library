@@ -41,6 +41,10 @@ data class QoeReport(
     @field:JacksonXmlProperty(localName = "AvgThroughputList")
     var avgThroughputList: ArrayList<AvgThroughputList>? = null,
 
+    @field:JacksonXmlElementWrapper(localName = "QoeMetric")
+    @field:JacksonXmlProperty(localName = "PlayList")
+    var playList: ArrayList<PlayList>? = null,
+
     @field:JacksonXmlProperty(isAttribute = true, localName = "periodID")
     var periodId: String = "",
 
