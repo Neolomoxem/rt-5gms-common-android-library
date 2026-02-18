@@ -39,7 +39,7 @@ data class ClientConsumptionReportingConfiguration(
 data class ClientMetricsReportingConfiguration(
     val metricsReportingConfigurationId: String,
     val serverAddresses: ArrayList<String>,
-    val scheme: String,
+    val scheme: String?,
     val dataNetworkName: String?,
     val reportingInterval: Long? = null,
     val samplePercentage: Float? = null,

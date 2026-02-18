@@ -9,16 +9,11 @@ https://drive.google.com/file/d/1cinCiA778IErENZ3JN52VFW-1ffHpx7Z/view
 
 package com.fivegmag.a5gmscommonlibrary.qoeMetricsReporting
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlText
 
-@Parcelize
-data class QoeMetricsRequest(
-    var scheme: String? = "",
-    var samplingPeriod: Long,
-    var reportingInterval: Long? = 0,
-    var metrics: ArrayList<String>? = ArrayList(),
-    var metricsReportingConfigurationId: String = "",
-) : Parcelable {
-    override fun describeContents(): Int = 0
+@JacksonXmlRootElement(localName = "sv:delimiter")
+class Delimiter {
+    @JacksonXmlText
+    val value: String = "0"
 }

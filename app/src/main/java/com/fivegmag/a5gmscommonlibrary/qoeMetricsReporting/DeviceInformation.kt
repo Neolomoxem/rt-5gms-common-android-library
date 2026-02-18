@@ -17,8 +17,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty
  * Based on 3GPP TS 26.247 clause 10.2.10
  */
 data class SupplementQoeMetric(
-    @field:JacksonXmlProperty(localName = "Entry")
-    @field:JacksonXmlElementWrapper(useWrapping = false)
+    @field:JacksonXmlProperty(localName = "sup:deviceinformation")
     val deviceInformation: DeviceInformation? = null
 )
 
@@ -26,7 +25,7 @@ data class SupplementQoeMetric(
  * Represents DeviceInformationType containing a list of DeviceInformationEntry
  */
 data class DeviceInformation(
-    @field:JacksonXmlProperty(localName = "Entry")
+    @field:JacksonXmlProperty(localName = "sup:Entry")
     @field:JacksonXmlElementWrapper(useWrapping = false)
     val entries: ArrayList<DeviceInformationEntry>
 )
