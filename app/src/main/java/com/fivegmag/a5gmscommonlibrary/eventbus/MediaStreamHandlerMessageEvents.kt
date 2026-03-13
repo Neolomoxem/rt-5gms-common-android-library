@@ -103,3 +103,12 @@ class PlaybackStartTriggerEvent(
     /** Elapsed real-time in milliseconds when the playback start was triggered */
     val realtimeMs: Long
 )
+
+/**
+ * Event fired when bytes are transferred over the network.
+ * Used for AvgThroughput QoE metric per TS 26.247 clause 10.2.4.
+ * Emitted incrementally by the TransferListener as data arrives.
+ */
+class BytesTransferredEvent(
+    val bytesTransferred: Int
+)

@@ -15,7 +15,6 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty
 
 @JsonPropertyOrder(
     "representationSwitchList",
-    "httpList",
     "bufferLevel",
     "mpdInformation",
     "initialPlayoutDelay",
@@ -33,10 +32,6 @@ data class QoeReport(
     @field:JacksonXmlElementWrapper(localName = "QoeMetric")
     @field:JacksonXmlProperty(localName = "RepSwitchList")
     var representationSwitchList: ArrayList<RepresentationSwitchList>? = null,
-
-    @field:JacksonXmlElementWrapper(localName = "QoeMetric")
-    @field:JacksonXmlProperty(localName = "HttpList")
-    var httpList: ArrayList<HttpList>? = null,
 
     @field:JacksonXmlElementWrapper(localName = "QoeMetric")
     @field:JacksonXmlProperty(localName = "BufferLevel")
